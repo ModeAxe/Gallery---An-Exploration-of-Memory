@@ -17,4 +17,9 @@ public class Curator : MonoBehaviour
     {
         
     }
+
+    public Vector3 getArtwork()
+    {
+        return artworks[Random.Range(0,artworks.Length)].transform.position;
+    }
 }
