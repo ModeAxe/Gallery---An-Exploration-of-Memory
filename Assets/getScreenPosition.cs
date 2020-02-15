@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class screenPositionTest : MonoBehaviour
+public class getScreenPosition : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject topLeft;
@@ -10,7 +10,7 @@ public class screenPositionTest : MonoBehaviour
     public Camera cam;
     void Start()
     {
-           
+        
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class screenPositionTest : MonoBehaviour
         Vector3 topLeftPixel = cam.WorldToScreenPoint(topLeft.transform.position);
         Vector3 bottomRightPixel = cam.WorldToScreenPoint(bottomRight.transform.position);
 
-        Debug.Log(topLeft);
-        Debug.Log(bottomRight);
+        Debug.Log(topLeftPixel.x);
+        Debug.Log(bottomRightPixel.x);
     }
 }
