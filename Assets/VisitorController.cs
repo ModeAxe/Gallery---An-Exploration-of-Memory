@@ -28,12 +28,11 @@ public class VisitorController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Artwork"))
+        if (other.CompareTag("Artwork"))
         {
             arrived = true;
-            Debug.Log("I'm here");
         }
     }
 }
