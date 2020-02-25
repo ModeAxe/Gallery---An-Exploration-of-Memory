@@ -23,8 +23,9 @@ public class VisitorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        agent.SetDestination(nextLocation);
 
-        if(arrived == true)
+        if (arrived == true)
         {
             if (nextLocation != currentLocation)
             {
@@ -41,7 +42,9 @@ public class VisitorController : MonoBehaviour
 
     private Vector3 getNextLocation()
     {
-        return curator.GetComponent<Curator>().getArtwork().transform.position;
+        GameObject o = curator.GetComponent<Curator>().getArtwork();
+        Debug.Log(o);
+        return o.transform.position;
     }
 
     void OnTriggerEnter(Collider other)
