@@ -9,36 +9,39 @@ public class VisitorController : MonoBehaviour
     public GameObject curator;
     public bool arrived;
 
-    private GameObject currentLocation;
-    private GameObject nextLocation;
+    private Vector3 currentLocation;
+    private Vector3 nextLocation;
 
     public NavMeshAgent agent;
 
     void Start()
     {
         arrived = false;
-        currentLocation = curator.GetComponent<Curator>().getArtwork();
+        nextLocation = getNextLocation();
     }
 
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(currentLocation.transform.position);
 
         if(arrived == true)
         {
-
-            do
+            if (nextLocation != currentLocation)
             {
-                nextLocation = curator.GetComponent<Curator>().getArtwork();
-                Debug.Log("Thinking....");
-                Debug.Log(nextLocation);
-            } while (nextLocation.ToString() == currentLocation.ToString());
-
-            agent.SetDestination(nextLocation.transform.position);
-            Debug.Log("New Desitination");
-            arrived = false;
+                agent.SetDestination(nextLocation);
+                Debug.Log("New Desitination");
+                arrived = false;
+            }
+            else
+            {
+                nextLocation = getNextLocation();
+            }
         }
+    }
+
+    private Vector3 getNextLocation()
+    {
+        return curator.GetComponent<Curator>().getArtwork().transform.position;
     }
 
     void OnTriggerEnter(Collider other)
@@ -46,7 +49,7 @@ public class VisitorController : MonoBehaviour
         if (other.CompareTag("Artwork"))
         {
             arrived = true;
-            currentLocation = other.gameObject;
+            currentLocation = other.gameObject.transform.position;
            
         }
     }
