@@ -18,7 +18,13 @@ public class thoughtController : MonoBehaviour
     {
         if(fading)
         {
-            transform.localScale -= new Vector3(scale * Time.deltaTime, scale * Time.deltaTime, scale * Time.deltaTime);
+            if(transform.localScale.x > 0)
+                transform.localScale -= new Vector3(scale * Time.deltaTime, scale * Time.deltaTime, scale * Time.deltaTime);
+        }
+        else
+        {
+            fading = false;
+            transform.localScale = new Vector3(1,1,1);
         }
     }
 
@@ -26,6 +32,7 @@ public class thoughtController : MonoBehaviour
     {
         transform.localScale = new Vector3(1,1,1);
         fading = false;
+
     }
 
     public void startFading() => fading = true;
