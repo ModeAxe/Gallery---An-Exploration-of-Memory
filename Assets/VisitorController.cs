@@ -7,6 +7,7 @@ public class VisitorController : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject curator;
+    public GameObject thought;
     public bool arrived;
 
     private Vector3 currentLocation;
@@ -53,13 +54,17 @@ public class VisitorController : MonoBehaviour
         {
             arrived = true;
             currentLocation = other.gameObject.transform.position;
-           
+            thought.GetComponent<thoughtController>().startFading();
+
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Artwork"))
+        {
             Debug.Log(other.gameObject.ToString());
+            thought.GetComponent<thoughtController>().startFading();
+        }
     }
 }
