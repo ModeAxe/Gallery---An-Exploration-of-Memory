@@ -16,7 +16,7 @@ public class thoughtController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while (fading)
+        if(fading)
         {
             transform.localScale -= new Vector3(scale * Time.deltaTime, scale * Time.deltaTime, scale * Time.deltaTime);
         }
