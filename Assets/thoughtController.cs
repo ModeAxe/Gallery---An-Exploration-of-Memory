@@ -6,11 +6,12 @@ public class thoughtController : MonoBehaviour
 {
     // Start is called before the first frame update
     public float scale;
+    public Vector3 sphereSize;
 
     private bool fading;
     void Start()
     {
-        
+        this.GetComponent<Renderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -24,13 +25,14 @@ public class thoughtController : MonoBehaviour
         else
         {
             fading = false;
-            transform.localScale = new Vector3(1,1,1);
+            transform.localScale = sphereSize;
         }
     }
 
     public void resetScale()
     {
-        transform.localScale = new Vector3(1,1,1);
+        transform.localScale = sphereSize;
+        this.GetComponent<Renderer>().enabled = true;
         fading = false;
 
     }
