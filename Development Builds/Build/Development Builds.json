@@ -1,0 +1,16 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Gallery - An Exploration of Memory",
+"productVersion": "1.0",
+"dataUrl": "Development Builds.data.unityweb",
+"wasmCodeUrl": "Development Builds.wasm.code.unityweb",
+"wasmFrameworkUrl": "Development Builds.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": true,
+"multithreading": false,
+"unityVersion": "2019.2.6f1"
+}
