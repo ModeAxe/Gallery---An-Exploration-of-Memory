@@ -54,7 +54,7 @@ public class VisitorController : MonoBehaviour
         {
             arrived = true;
             currentLocation = other.gameObject.transform.position;
-            thought.GetComponent<thoughtController>().startFading();
+            thought.GetComponent<thoughtController>().resetScale();
 
         }
     }
