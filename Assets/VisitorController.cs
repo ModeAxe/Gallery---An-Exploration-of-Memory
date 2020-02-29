@@ -10,6 +10,8 @@ public class VisitorController : MonoBehaviour
     public GameObject thought;
     public bool arrived;
 
+    public GameObject thoughtPlane;
+
     private Vector3 currentLocation;
     private Vector3 nextLocation;
 
@@ -55,6 +57,8 @@ public class VisitorController : MonoBehaviour
             arrived = true;
             currentLocation = other.gameObject.transform.position;
             thought.GetComponent<thoughtController>().resetScale();
+            Material m = other.gameObject.GetComponent<Renderer>().material;
+            thoughtPlane.GetComponent<changeMaterial>().ChangeMaterial(m);
 
         }
     }
