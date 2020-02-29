@@ -46,7 +46,6 @@ public class VisitorController : MonoBehaviour
     private Vector3 getNextLocation()
     {
         GameObject o = curator.GetComponent<Curator>().getArtwork();
-        Debug.Log(o);
         return o.transform.position;
     }
 
@@ -57,8 +56,8 @@ public class VisitorController : MonoBehaviour
             arrived = true;
             currentLocation = other.gameObject.transform.position;
             thought.GetComponent<thoughtController>().resetScale();
-            Material m = other.gameObject.GetComponent<Renderer>().material;
-            thoughtPlane.GetComponent<changeMaterial>().ChangeMaterial(m);
+            Texture t = other.gameObject.GetComponent<Renderer>().material.mainTexture;
+            thoughtPlane.GetComponent<changeMaterial>().ChangeMaterial(t);
 
         }
     }

@@ -5,22 +5,21 @@ using UnityEngine;
 public class changeMaterial : MonoBehaviour
 {
     Renderer r;
+    public float speed = 50f;
     // Start is called before the first frame update
     void Start()
     {
         r = GetComponent<Renderer>();
         
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        transform.Rotate(Vector3.up * -speed * Time.deltaTime);  
     }
-
-    public void ChangeMaterial(Material m)
+    public void ChangeMaterial(Texture t)
     {
-        r.sharedMaterial = m;
+        Debug.Log(t);
+        r.material.mainTexture = t;
 
     }
 }
