@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -9,6 +10,7 @@ public class VisitorController : MonoBehaviour
     public GameObject curator;
     public GameObject thought;
     public bool arrived;
+    public int maxWaitTime;
 
     public GameObject thoughtPlane;
 
@@ -32,8 +34,8 @@ public class VisitorController : MonoBehaviour
         {
             if (nextLocation != currentLocation)
             {
+                StartCoroutine(chillBro());
                 agent.SetDestination(nextLocation);
-                Debug.Log("New Desitination");
                 arrived = false;
             }
             else
@@ -62,11 +64,17 @@ public class VisitorController : MonoBehaviour
         }
     }
 
+    IEnumerator chillBro()
+    {
+        int t = UnityEngine.Random.Range(0, maxWaitTime);
+        Debug.Log(t);
+        yield return new WaitForSeconds(t);
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Artwork"))
         {
-            Debug.Log(other.gameObject.ToString());
             thought.GetComponent<thoughtController>().startFading();
         }
     }

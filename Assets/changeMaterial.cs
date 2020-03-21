@@ -18,7 +18,6 @@ public class changeMaterial : MonoBehaviour
     }
     public void ChangeMaterial(Texture t)
     {
-        Debug.Log(t);
         r.material.mainTexture = t;
 
     }
