@@ -32,9 +32,10 @@ public class VisitorController : MonoBehaviour
 
         if (arrived == true)
         {
+            StartCoroutine(chillBro());
             if (nextLocation != currentLocation)
             {
-                StartCoroutine(chillBro());
+                
                 agent.SetDestination(nextLocation);
                 arrived = false;
             }
@@ -64,11 +65,14 @@ public class VisitorController : MonoBehaviour
         }
     }
 
+    [Obsolete]
     IEnumerator chillBro()
     {
         int t = UnityEngine.Random.Range(0, maxWaitTime);
         Debug.Log(t);
+        agent.Stop();
         yield return new WaitForSeconds(t);
+        agent.Resume();
     }
 
     private void OnTriggerExit(Collider other)
