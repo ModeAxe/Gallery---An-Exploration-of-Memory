@@ -11,7 +11,8 @@ public class thoughtController : MonoBehaviour
     private bool fading;
     void Start()
     {
-        this.GetComponent<Renderer>().enabled = false;
+        //this.GetComponent<Renderer>().enabled = false;
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,7 +33,8 @@ public class thoughtController : MonoBehaviour
     public void resetScale()
     {
         transform.localScale = sphereSize;
-        this.GetComponent<Renderer>().enabled = true;
+        gameObject.SetActive(true);
+        //this.GetComponent<Renderer>().enabled = true;
         fading = false;
 
     }
