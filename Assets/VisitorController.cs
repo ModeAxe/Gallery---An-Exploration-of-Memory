@@ -23,6 +23,7 @@ public class VisitorController : MonoBehaviour
     {
         arrived = false;
         nextLocation = getNextLocation();
+        agent.speed = UnityEngine.Random.Range(4, 15);
     }
 
     // Update is called once per frame
@@ -72,6 +73,7 @@ public class VisitorController : MonoBehaviour
         Debug.Log(t);
         agent.Stop();
         yield return new WaitForSeconds(t);
+        agent.speed = UnityEngine.Random.Range(4, 15);
         agent.Resume();
     }
 
