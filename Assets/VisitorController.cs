@@ -60,8 +60,9 @@ public class VisitorController : MonoBehaviour
             arrived = true;
             currentLocation = other.gameObject.transform.position;
             thought.GetComponent<thoughtController>().resetScale();
-            Texture t = other.gameObject.GetComponent<Renderer>().material.mainTexture;
-            thoughtPlane.GetComponent<changeMaterial>().ChangeMaterial(t);
+            Material m = other.gameObject.GetComponent<Renderer>().material;
+            Debug.Log(m);
+            thoughtPlane.GetComponent<changeMaterial>().ChangeMaterial(m);
 
         }
     }

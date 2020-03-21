@@ -16,9 +16,15 @@ public class changeMaterial : MonoBehaviour
     {
         transform.Rotate(Vector3.up * -speed * Time.deltaTime);  
     }
-    public void ChangeMaterial(Texture t)
+    public void ChangeMaterial(Material m)
     {
-        r.material.mainTexture = t;
-
+        if (r == null)
+        {
+            Debug.Log("Strange But You have no renderer here");
+        }
+        else
+        {
+            r.material = m;
+        }
     }
 }

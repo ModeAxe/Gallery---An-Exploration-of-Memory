@@ -11,7 +11,6 @@ public class thoughtController : MonoBehaviour
     private bool fading;
     void Start()
     {
-        //this.GetComponent<Renderer>().enabled = false;
         gameObject.SetActive(false);
     }
 
@@ -34,7 +33,6 @@ public class thoughtController : MonoBehaviour
     {
         transform.localScale = sphereSize;
         gameObject.SetActive(true);
-        //this.GetComponent<Renderer>().enabled = true;
         fading = false;
 
     }
